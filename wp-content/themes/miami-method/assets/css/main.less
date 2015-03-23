@@ -1,0 +1,30 @@
+@import "html5.css"; // put in dist folder
+@import "normalize.css"; // put in dist folder
+@import "wordpress-core.less";
+@import "functions.less";
+@import "header.less";
+@import "nav.less";
+@import "article.less";
+
+/***** Common Classes / Misc / Too lazy to categorize etc... *****/
+.blog-posts {
+	max-width: 1280px;
+	padding: 0 @header-side-padding;
+	margin: 0 auto;
+}
+
+// things that can be blurred
+.blog-posts, .big-header {
+	transition: all .5s ease;
+}
+
+.blur {
+	-webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+}
+
+body {
+	color: @dark-grey;
+}

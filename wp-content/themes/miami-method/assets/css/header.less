@@ -1,0 +1,58 @@
+header.main-header {
+  .sticky {
+    text-transform: uppercase;
+    position: fixed;
+    color: @light-grey;
+    font-size: 1.2em;
+    top: 0; left: 0; right: 0;
+    background-color: #FFF;
+    z-index: 3;
+    padding: 14px @header-side-padding 12px;
+    -webkit-box-shadow: 0px -19px 13px 19px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -19px 13px 19px rgba(0,0,0,0.75);
+    box-shadow: 0px -19px 13px 19px rgba(0,0,0,0.75);
+  }
+  .left, .right {
+    cursor: pointer;
+    padding-right: 20px;
+  }
+  .left {
+    float: left;
+    transition: all .125s;
+    &:hover { 
+      color: #73131C;
+    }
+  }
+  .right {
+    float: right;
+  }
+
+  .big-header {
+    margin-top: 46px;
+    background-attachment: fixed;
+    background-position: top center;
+    background-size: cover;
+    // background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-image: url('http://lorempixel.com/1500/450/abstract');
+    // background-color: #2C2C2C;
+    text-align: center;
+    color: #FFF;
+
+    .joe {
+      border-left: 2px solid #FFF;
+      border-right: 2px solid #FFF;
+      border-top: 1px solid #FFF;
+      border-bottom: 1px solid #FFF;
+      font-size: 3.4em;
+      font-weight: 700;
+      padding: 20px 40px;
+      display: inline-block;
+      margin: 90px auto 0;
+    }
+
+    .tagline {
+      padding: 60px 0;
+    }
+  }
+}

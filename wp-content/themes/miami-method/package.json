@@ -1,7 +1,7 @@
 {
-  "name": "rye",
+  "name": "miami-method",
   "version": "0.0.0",
-  "description": "A super simple, yet elegant starter theme for wordpress.",
+  "description": "Miami Method",
   "author": "Pete Saia",
   "license": "BSD-2-Clause",
   "devDependencies": {

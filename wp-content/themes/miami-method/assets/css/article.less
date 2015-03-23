@@ -1,0 +1,34 @@
+
+article {
+	@big-padding: 10px;
+	@small-padding: 6px;
+	margin: 45px 0;
+	a {
+		color: @teal;
+		text-decoration: none;
+		&:hover{
+			color: saturate(@teal, 20);
+		}
+	}
+	.date {
+		font-size: 2.2em;
+		color: #bf1e2e;
+		font-weight: 100;
+		padding-bottom: @big-padding;
+	}
+	.title {
+		color: @light-grey;
+		font-size: 1.8em;
+		font-weight: 700;
+		padding-bottom: @small-padding;
+	}
+	.author {
+		font-size: 0.7em;
+		font-weight: 400;
+	}
+	.content {
+		font-size: 1.1em;
+		color: @dark-grey;
+		padding: @big-padding 0;
+	}
+}

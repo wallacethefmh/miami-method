@@ -2,8 +2,9 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     fileName: '<%= grunt.config.get("pkg").name.toLowerCase().replace(/ /g, "-") %>',
-    jsFiles: ['assets/js/*.js'],
-    cssFiles: ['assets/css/*.less'],
+    jsFiles: ['assets/js/vendor/jquery*.js','assets/js/vendor/*.js','assets/js/*.js'],
+    cssFiles: ['assets/css/*.less','assets/css/*.css'],
+    cssFileMain: ['assets/css/main.less'],
     distDir: 'assets/dist/',
     concat: {
       options: {
@@ -30,7 +31,7 @@ module.exports = function(grunt) {
           compress: true
         },
         files: {
-          '<%= distDir %><%= fileName %>.all.min.css': '<%= cssFiles %>'
+          '<%= distDir %><%= fileName %>.all.min.css': '<%= cssFileMain %>'
         }
       },
       uncompressed: {
@@ -38,7 +39,7 @@ module.exports = function(grunt) {
           compress: false
         },
         files: {
-          '<%= distDir %><%= fileName %>.all.css': '<%= cssFiles %>'
+          '<%= distDir %><%= fileName %>.all.css': '<%= cssFileMain %>'
         }
       }
     },
