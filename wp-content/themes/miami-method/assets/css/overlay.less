@@ -1,0 +1,98 @@
+.overlay {
+	opacity: 0;
+	visibility: hidden;
+	z-index: 9999;
+	background-color: rgba(0,0,0,0.85);
+	transition: all .3s ease;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	color: #FFF;
+
+	.icon {
+		max-height: 150px;
+		margin: 0px auto 60px;
+		display: block;
+
+		@media @mobile {
+			max-height: 60px;
+			margin: 0px auto 30px;
+		}
+	}
+
+	form {
+		text-align: center;
+		padding: 0 12px;
+		max-width: 800px;
+		position: relative;
+		margin: 120px auto 50px;
+		@media @mobile {
+			margin: 20px auto 50px;
+		}
+
+		input {
+			font-size: 3em;
+			@media @mobile {
+				font-size: 1em;
+			}
+			background-color: transparent;
+			outline: none;
+			border: none;
+			text-align: center;
+		}
+		p {
+			font-size: 1.3em;
+			@media @mobile {
+				font-size: 1em;
+			}
+		}		
+	}
+
+	.close-overlay {
+		position: absolute;
+		top: 0;
+		right: 0;
+		text-align: center;
+		font-size: 40px;
+		line-height: 50px;
+		width: 50px;
+		height: 50px;
+		transition: all .2s ease;
+		color: #FFF;
+		cursor: pointer;
+		border: 1px solid #FFF;
+		&:hover {
+			background-color: #FFF;
+			color: #292929;
+		}
+		@media @mobile {
+			right: 20px;
+		}
+	}
+
+	.submit {
+		font-size: 2em;
+		padding: 20px;
+		border: 1px solid #FFF;
+		width: 255px;
+		margin: 40px auto 0;
+		transition: all .2s ease;
+		cursor: pointer;
+		&:hover {
+			background-color: #FFF;
+			color: #292929;
+		}
+
+		@media @mobile {
+			font-size: 1em;
+		}
+	}
+
+	&.active {
+		opacity: 1;
+		visibility: visible;
+	}
+
+}

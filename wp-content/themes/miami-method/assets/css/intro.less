@@ -1,0 +1,93 @@
+.entry-overlay {
+	
+	position: absolute;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	top: 0;
+	z-index: 10000;
+	background-color: #DBECFB;
+	transition: all .5s ease;
+	visibility: hidden;
+	opacity: 0;
+
+	&.loaded {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	.entry-img, .pattern {
+		right: 0; left: 0; bottom: 0; top: 0;
+		position: absolute;
+		transition: all 1.2s ease;
+		visibility: hidden;
+		opacity: 0;
+		&.loaded {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+
+	.pattern {
+		background-repeat: repeat;
+		background-image: url('../img/pattern-transparent.png');
+	}
+
+	.entry-img {
+		background-image: url('../img/entry-img.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	.box {
+		position: absolute;
+		width: 500px;
+		height: 400px;
+		background-color: rgba(255,255,255,0.9);
+		right: 0;
+		left: 0;
+		bottom: 0;
+		top: 250px;
+		margin: auto;
+		visibility: hidden;
+		opacity: 0;
+		transition: all .8s ease .6s;
+		&.loaded {
+			top: 0;
+			visibility: visible;
+			opacity: 1;
+		}
+		.padding {
+			padding: 60px 108px;
+		}
+		.button {
+			margin-top: 25px;
+			border: 3px solid @dark-red-font;
+			font-size: 1.7em;
+			padding: 10px;
+			color: @dark-red-font;
+			text-transform: uppercase;
+			text-align: center;
+			transition: all .15s ease;
+			cursor: pointer;
+
+			&:hover {
+				color: #FFF;
+				background-color: @dark-red-font;
+			}
+		}
+		@media @mobile {
+			width: 80%;
+			height: 300px;
+			.padding {
+				padding: 25px;
+			}
+			img {
+				max-width: 100%;
+				width: auto;
+				height: auto;
+			}
+		}
+	}
+
+}

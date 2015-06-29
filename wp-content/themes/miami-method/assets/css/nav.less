@@ -3,7 +3,7 @@ nav {
 	top: 45px; left: 0; bottom: 0;
 	z-index: 2;
 	visibility: hidden;
-	width: 250px;
+	width: 280px;
 	height: 100%;
 	background: @dark-grey;
 	-webkit-transition: all 0.5s;
@@ -14,18 +14,34 @@ nav {
 	-webkit-box-shadow: -19px 0px 11px 20px rgba(0,0,0,1);
 	-moz-box-shadow: -19px 0px 11px 20px rgba(0,0,0,1);
 	box-shadow: -19px 0px 11px 20px rgba(0,0,0,1);
+	@media @mobile {
+		top: 60px;
+		width: 100%;
+	}
 	&.open {
 		visibility: visible;
 		-webkit-transform: translate3d(0, 0, 0);
 		transform: translate3d(0, 0, 0);
 	}
-
+	a {
+		color: #FFF;
+		text-decoration: none;
+		transition: all .25s ease;
+		&:hover {
+			color: darken(#FFF, 30%);
+			text-decoration: underline;
+		}
+	}
 	.open-menu {
 		font-size: 1.2em;
 		text-transform: uppercase;
 	}
 	.padding {
-		padding: 25px @header-side-padding;
+		padding: 72px;
+		.header-side-padding();
+		@media @mobile {
+			padding: 0;
+		}
 	}
 	.top {
 		padding-top: 40px;
@@ -33,5 +49,33 @@ nav {
 	.nav-item {
 		padding: 15px 0;
 		display: block;
+		cursor: pointer;
+		.arrow {
+			transition: all .2s ease;
+		}
+		@media @mobile {
+			border-top: 1px solid #555;
+			padding: 15px;
+			&:last-child {
+				border-bottom: 1px solid #555;
+			}
+		}
+	}
+	.nav-sub {
+		max-height: 0;
+		transition: all .4s ease;
+		overflow: hidden;
+		&.show {
+			max-height: 400px;
+		}
+		a {
+			color: @teal;
+			font-size: .9em;
+			display: block;
+			padding: 5px 0;
+		}
+	}
+	.open-subscribe { 
+		.displayOnlyOnMobile();
 	}
 }

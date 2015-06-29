@@ -1,30 +1,24 @@
 
 article {
-	@big-padding: 10px;
-	@small-padding: 6px;
+	padding-bottom: 50px;
+	border-bottom: 1px solid @light-grey;
 	margin: 45px 0;
-	a {
-		color: @teal;
-		text-decoration: none;
-		&:hover{
-			color: saturate(@teal, 20);
+	.date {
+		.gotham-extra-light();
+		font-size: 3.5em;
+		letter-spacing: -3px;
+		color: @dark-red-font;
+		padding-bottom: @big-padding;
+		@media @mobile {
+			font-size: 1.8em;
 		}
 	}
-	.date {
-		font-size: 2.2em;
-		color: #bf1e2e;
-		font-weight: 100;
-		padding-bottom: @big-padding;
-	}
 	.title {
-		color: @light-grey;
-		font-size: 1.8em;
-		font-weight: 700;
-		padding-bottom: @small-padding;
+		.title();
 	}
 	.author {
-		font-size: 0.7em;
-		font-weight: 400;
+		.gotham-italic();
+		font-size: 0.9em;
 	}
 	.content {
 		font-size: 1.1em;

@@ -1,58 +1,137 @@
 header.main-header {
-  .sticky {
-    text-transform: uppercase;
-    position: fixed;
-    color: @light-grey;
-    font-size: 1.2em;
-    top: 0; left: 0; right: 0;
-    background-color: #FFF;
-    z-index: 3;
-    padding: 14px @header-side-padding 12px;
-    -webkit-box-shadow: 0px -19px 13px 19px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px -19px 13px 19px rgba(0,0,0,0.75);
-    box-shadow: 0px -19px 13px 19px rgba(0,0,0,0.75);
-  }
-  .left, .right {
-    cursor: pointer;
-    padding-right: 20px;
-  }
-  .left {
-    float: left;
-    transition: all .125s;
-    &:hover { 
-      color: #73131C;
-    }
-  }
-  .right {
-    float: right;
-  }
+	.sticky {
+		text-transform: uppercase;
+		position: fixed;
+		color: @dark-grey;
+		font-size: 1.3em;
+		top: 0; left: 0; right: 0;
+		background-color: @default-bg;
+		z-index: 3;
+		padding-top: 14px;
+		padding-bottom: 12px;
+		-webkit-box-shadow: 0px -19px 13px 19px rgba(0,0,0,0.75);
+		-moz-box-shadow: 0px -19px 13px 19px rgba(0,0,0,0.75);
+		box-shadow: 0px -19px 13px 19px rgba(0,0,0,0.75);
+		@media @mobile-tablet {
+			font-size: 1.2em;
+		}
+	}
+	.padding {
+		.default-pane();
+	}
+	.left, .right {
+		cursor: pointer;
+		padding-right: 20px;
+		padding-bottom: 5px;
+		@media @mobile-tablet {
+			padding-right: 5px;
+		}
+	}
+	.left {
+		padding-top: 0px;
+		float: left;
+		transition: all .125s;
+		margin-left: 25px;
+		@media @mobile-tablet {
+			margin-left: 8px;
+		}
+		&:hover { 
+			color: #73131C;
+		}
+		&:first-child { 
+			margin-left: 0px; 
+		}
+	}
+	.right {
+		float: right;
+	}
+	.icon, .label {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.label.active {
+		color: @dark-red;
+	}
+	@media @mobile {
+		.label {
+			display: none;
+		}
+	}
+	.icon {
+		margin-right: 5px;
+		&.search {
+			padding-bottom: 3px;
+		}
+		&.subscribe {
+			padding-bottom: 3px;
+			@media @mobile {
+				display: none;
+			}
+		}
+	}
+	.hb {
+		@media @mobile {
+			margin-top: 3px;
+		}
+		.hamburger(26px, 5px, 3px, @light-grey, @dark-red, .7s, .1s);
+	}
+	.big-header {
+		margin-top: 53px;
+		background-attachment: fixed;
+		background-position: center 50px;
+		background-color: @dark-red;
+		background-repeat: no-repeat;
+		background-image: url('../img/header-image.jpg');
+		text-align: center;
+		color: #FFF;
+		height: 349px;
+		@media @mobile {
+			height: 165px;
+			background-size: auto 170px;
+			background-position: left 50px;
+		}
 
-  .big-header {
-    margin-top: 46px;
-    background-attachment: fixed;
-    background-position: top center;
-    background-size: cover;
-    // background-size: auto 100%;
-    background-repeat: no-repeat;
-    background-image: url('http://lorempixel.com/1500/450/abstract');
-    // background-color: #2C2C2C;
-    text-align: center;
-    color: #FFF;
+		@shadow: 1px 1px 2px rgba(0, 0, 0, .7);
+		div {
+			text-shadow: @shadow;
+		}
+		.blog-title {
+			border-left: 2px solid #FFF;
+			border-right: 2px solid #FFF;
+			border-top: 1px solid #FFF;
+			border-bottom: 1px solid #FFF;
+			font-size: 3.5em;
+			font-weight: 700;
+			padding: 20px 40px;
+			display: inline-block;
+			margin: 90px auto 0;
+			@media @1200 {
+				font-size: 3em;
+			}
+			@media @mobile {
+				margin: 1.5em auto 0;
+				padding: 0 @header-side-padding-mobile;
+				border: none;
+				font-size: 1.4em;
+			}
+		}
 
-    .joe {
-      border-left: 2px solid #FFF;
-      border-right: 2px solid #FFF;
-      border-top: 1px solid #FFF;
-      border-bottom: 1px solid #FFF;
-      font-size: 3.4em;
-      font-weight: 700;
-      padding: 20px 40px;
-      display: inline-block;
-      margin: 90px auto 0;
-    }
-
-    .tagline {
-      padding: 60px 0;
-    }
-  }
+		.joe {
+			padding: 35px 0 5px;
+			font-size: 1.5em;
+			@media @mobile {
+				padding: 10px 0 0 0;
+				font-size: .9em;
+			}
+		}
+		.tagline {
+			.gotham-italic();
+			padding: 0 0 60px 0;
+			font-size: 1.2em;
+			@media @mobile {
+				font-size: .9em;
+				padding: @header-side-padding-mobile;
+			}
+		}
+	}
 }

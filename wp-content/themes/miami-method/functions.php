@@ -134,27 +134,43 @@ Rye::init(array(
 	)
 ));
 
+add_action( 'wp_enqueue_scripts', 'load_dashicons_front_end' );
+function load_dashicons_front_end() {
+	wp_enqueue_style( 'dashicons' );
+}
+
 add_action('wp_ajax_load_more_posts', 'load_more_posts');
 add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
+
 function load_more_posts() {
-	$response = array();
-	$query = new WP_Query('paged='.$_POST['paged']);
+
+	$response = array();	
+	$args = array(
+		'paged' => $_POST['paged'],
+	);
+	foreach($_POST['query'] as $key => $value) {
+	    $args[$key] = $value;
+	}
+	$query = new WP_Query($args);
+
 	if ($query->have_posts()) { while ($query->have_posts()) { $query->the_post();
-		
+
 		// setup categories string
 		$categories = get_the_category();
 		$separator = ' ';
 		$output = '';
+
 		if ($categories){
 			foreach ($categories as $category) {
 				$output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '">'.$category->cat_name.'</a>'.$separator;
 			}
 		}
-		$categories_string = trim($output, $separator);
 
+		$categories_string = trim($output, $separator);
 		// setup tags strings
 		$tags = get_tags();
 		$tags_string = '';
+
 		foreach ($tags as $tag) {
 			$tag_link = get_tag_link( $tag->term_id );          
 			$tags_string .= "<a href='{$tag_link}' title='{$tag->name} Tag' class='{$tag->slug}'>";
@@ -162,15 +178,15 @@ function load_more_posts() {
 		}
 
 		$article =  get_post(get_the_ID());
-		$article->date = get_the_date('m.d.y');
+		$article->date = get_the_date('n.j.y');
 		$article->author = get_the_author();
 		$article->categories = $categories_string;
 		$article->tags = $tags_string;
-
 		$response['articles'][] = $article;
 
-		error_log(get_the_ID());
 	}}
+
 	echo json_encode($response);
 	die();
+
 }

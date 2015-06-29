@@ -1,6 +1,117 @@
 @light-grey: #767676;
 @light-gray: #767676;
-@dark-grey: #4B4B4B;
-@dark-gray: #4B4B4B;
-@teal: #6BCFAF;
+@dark-grey: #292929;
+@dark-gray: #292929;
+@dark-red: #73141C;
+@dark-red-font: #bf1e2e;
+@teal: #16B783;
 @header-side-padding: 45px;
+@header-side-padding-mobile: 15px;
+@gotham: 'Gotham SSm A', 'Gotham SSm B';
+@default-bg: #F7F7F7;
+@big-padding: 10px;
+@small-padding: 6px;
+@mobile: ~"(max-width: 767px)";
+@mobile-tablet: ~"(max-width: 1023px)";
+@1200: ~"(max-width: 1200px)";
+
+html {
+	font-family: @gotham;
+	font-style: normal;
+	font-weight: 400;
+}
+
+body {
+	background-color: @default-bg;
+}
+
+.header-side-padding() {
+	padding-left: @header-side-padding;
+	padding-right: @header-side-padding;
+	@media @mobile {
+		padding-left: @header-side-padding-mobile;
+		padding-right: @header-side-padding-mobile;
+	}
+}
+
+.gotham-extra-light() {
+	font-family: @gotham;
+	font-weight: 200;
+}
+.gotham-light() {
+	font-family: @gotham;
+	font-weight: 300;
+}
+.gotham-italic() {
+	font-family: @gotham;
+	font-weight: 400;
+	font-style: italic;
+}
+.gotham-bold() {
+	font-family: @gotham;
+	font-weight: 500;
+}
+
+.title() {
+	.gotham-bold();
+	color: @light-grey;
+	font-size: 2.3em;
+	font-weight: 700;
+	padding-bottom: @small-padding;
+	@media @mobile {
+		font-size: 1.5em;
+	}
+}
+
+.default-pane() {
+	max-width: 1280px;
+	padding: 0;
+	margin: 0 auto;
+	overflow-x: hidden;
+	.header-side-padding();
+}
+
+.hamburger(@width, @heights, @spacing, @default-color, @hover-color, @duration, @delay) {
+	width: @width;
+	height: ((@heights + @spacing) * 3) - @spacing;
+	position: relative;
+	&:hover, &.active, &.open {
+		.hover {
+			width: @width;
+			opacity: 1;
+		}
+	}
+	.top, .mid, .bot {
+		height: @heights;
+		background-color: @default-color;
+		position: absolute;
+		left: 0;
+		width: @width;
+		&.hover {
+			background-color: @hover-color;
+		}
+	}
+	.hover {
+		width: 0px;
+		opacity: 0;
+	}
+	.top { 
+		transition: all @duration ease;
+		top: 0;
+	}
+	.mid { 
+		transition: all @duration ease @delay; 
+		top: (@heights) + @spacing;
+	}
+	.bot { 
+		transition: all @duration ease (@delay*2); 
+		top: ((@heights + @spacing) * 2);
+	}
+}
+
+.displayOnlyOnMobile() {
+	display: none;
+	@media @mobile {
+		display: block;
+	}
+}

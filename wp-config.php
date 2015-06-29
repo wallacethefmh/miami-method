@@ -33,6 +33,14 @@ define('DB_CHARSET', 'utf8');
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
 
+/** The site url and homepage */
+$scheme = empty($_SERVER['HTTPS']) ? 'http' : 'https';
+$host = $_SERVER['HTTP_HOST'];
+$path = ''; // Default to empty string
+$siteurl = $scheme . '://' . $host . '/' . ltrim($path, '/');
+define('WP_SITEURL', $siteurl);
+define('WP_HOME', $siteurl);
+
 /**#@+
  * Authentication Unique Keys and Salts.
  *
