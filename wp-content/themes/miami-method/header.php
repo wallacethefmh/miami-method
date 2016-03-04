@@ -51,22 +51,22 @@
           </div>
           <div class="label">Subscribe</div>
         </div>
-    		<div class="right">
+    		<div class="right logo">
     			<a href="/"><img src="<?php bloginfo('template_directory'); ?>/assets/img/logo.png" /></a>
     		</div>
     	</div>
     </div>
   	<div class="big-header">
-  		<div class="blog-title">Minimally Invasive Valves</div>
-      <div class="joe">Joseph Lamelas MD</div>
-  		<div class="tagline">Dedicated to the advancement of minimally invasive cardiac surgery</div>
+  		<div class="blog-title">Miami Minimally Invasive Valves</div>
+      <div class="joe">Joseph Lamelas, MD</div>
+  		<div class="tagline">Dedicated to the Advancement of Minimally Invasive Cardiac Surgery</div>
   	</div>
   </header>
 
   <nav class="side-nav">
   	<div class="padding">
       <a class="nav-item open-subscribe" href="javascript:void(0);">Subscribe</a>
-	  	<a class="nav-item" href="/about">About</a>
+	  	<a class="nav-item first-desktop" href="/about">About</a>
 	  	<a class="nav-item" href="/videos">Videos</a>
 	  	<a class="nav-item" href="/published-articles">Publications</a>
       <div class="nav-item expand">Categories<span class="arrow dashicons dashicons-arrow-down"></span>
@@ -95,6 +95,7 @@
           value="<?php echo get_search_query() ?>" 
           name="s" 
           title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
+        <div class="submit">Search</div>
       </label>
     </form>
   </div> 

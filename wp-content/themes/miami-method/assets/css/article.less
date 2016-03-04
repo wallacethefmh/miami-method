@@ -1,14 +1,14 @@
 
 article {
-	padding-bottom: 50px;
+	padding-bottom: @vertical-common;
 	border-bottom: 1px solid @light-grey;
-	margin: 45px 0;
+	margin: @vertical-common 0;
 	.date {
 		.gotham-extra-light();
 		font-size: 3.5em;
 		letter-spacing: -3px;
-		color: @dark-red-font;
-		padding-bottom: @big-padding;
+		color: @header-bg-color-font;
+		padding-bottom: (@vertical-common / 2);
 		@media @mobile {
 			font-size: 1.8em;
 		}
@@ -23,6 +23,11 @@ article {
 	.content {
 		font-size: 1.1em;
 		color: @dark-grey;
-		padding: @big-padding 0;
+		padding: (@vertical-common / 2) 0;
+	}
+
+	p {
+		margin-top: 0;
+		margin-bottom: 1em;
 	}
 }

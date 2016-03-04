@@ -1,9 +1,16 @@
+@logo-line-height: 35px;
+
 header.main-header {
+
+	.logo img {
+		height: @logo-line-height;
+	}
+
 	.sticky {
 		text-transform: uppercase;
 		position: fixed;
 		color: @dark-grey;
-		font-size: 1.3em;
+		font-size: 1.1em;
 		top: 0; left: 0; right: 0;
 		background-color: @default-bg;
 		z-index: 3;
@@ -22,7 +29,6 @@ header.main-header {
 	.left, .right {
 		cursor: pointer;
 		padding-right: 20px;
-		padding-bottom: 5px;
 		@media @mobile-tablet {
 			padding-right: 5px;
 		}
@@ -32,11 +38,12 @@ header.main-header {
 		float: left;
 		transition: all .125s;
 		margin-left: 25px;
+		line-height: @logo-line-height;
 		@media @mobile-tablet {
 			margin-left: 8px;
 		}
 		&:hover { 
-			color: #73131C;
+			color: @link-color;
 		}
 		&:first-child { 
 			margin-left: 0px; 
@@ -50,7 +57,7 @@ header.main-header {
 		vertical-align: middle;
 	}
 	.label.active {
-		color: @dark-red;
+		color: @header-bg-color;
 	}
 	@media @mobile {
 		.label {
@@ -58,7 +65,8 @@ header.main-header {
 		}
 	}
 	.icon {
-		margin-right: 5px;
+		margin-right: 3px;
+		margin-top: 1px;
 		&.search {
 			padding-bottom: 3px;
 		}
@@ -73,18 +81,17 @@ header.main-header {
 		@media @mobile {
 			margin-top: 3px;
 		}
-		.hamburger(26px, 5px, 3px, @light-grey, @dark-red, .7s, .1s);
+		.hamburger(22px, 4px, 2px, @light-grey, @link-color, .7s, .1s);
 	}
 	.big-header {
-		margin-top: 53px;
+		margin-top: 65px;
 		background-attachment: fixed;
-		background-position: center 50px;
-		background-color: @dark-red;
+		background-position: center 35px;
+		background-color: @header-bg-color;
 		background-repeat: no-repeat;
-		background-image: url('../img/header-image.jpg');
+		background-image: url('../img/header-image.png');
 		text-align: center;
 		color: #FFF;
-		height: 349px;
 		@media @mobile {
 			height: 165px;
 			background-size: auto 170px;
@@ -92,19 +99,17 @@ header.main-header {
 		}
 
 		@shadow: 1px 1px 2px rgba(0, 0, 0, .7);
-		div {
-			text-shadow: @shadow;
-		}
 		.blog-title {
+			text-shadow: @shadow;
 			border-left: 2px solid #FFF;
 			border-right: 2px solid #FFF;
 			border-top: 1px solid #FFF;
 			border-bottom: 1px solid #FFF;
 			font-size: 3.5em;
-			font-weight: 700;
+			font-weight: 300;
 			padding: 20px 40px;
 			display: inline-block;
-			margin: 90px auto 0;
+			margin: (@vertical-common * 2) auto 0;
 			@media @1200 {
 				font-size: 3em;
 			}
@@ -117,16 +122,17 @@ header.main-header {
 		}
 
 		.joe {
-			padding: 35px 0 5px;
-			font-size: 1.5em;
+			padding: @vertical-common 0 (@vertical-common / 2);
+			font-size: 1.7em;
+			font-weight: 700;
 			@media @mobile {
 				padding: 10px 0 0 0;
 				font-size: .9em;
 			}
 		}
 		.tagline {
-			.gotham-italic();
-			padding: 0 0 60px 0;
+			font-weight: 200;
+			padding: 0 0 @vertical-common 0;
 			font-size: 1.2em;
 			@media @mobile {
 				font-size: .9em;

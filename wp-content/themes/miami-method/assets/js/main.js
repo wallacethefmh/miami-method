@@ -97,6 +97,13 @@ $(function() {
 	});
 
 
+	// SUBMIT ABOVE FORMS
+	$submit = $('.submit');
+	$submit.on('click', function() {
+		$submit.closest("form").submit();
+	})
+
+
 
 	// ENTRY PAGE
 	var showIntro = Cookies.get('hideIntro');

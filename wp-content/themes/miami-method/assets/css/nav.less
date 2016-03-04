@@ -1,22 +1,21 @@
 nav {
 	position: fixed;
-	top: 45px; left: 0; bottom: 0;
-	z-index: 2;
+	top: 65px; left: 0; bottom: 0;
 	visibility: hidden;
-	width: 280px;
+	width: 33%;
 	height: 100%;
-	background: @dark-grey;
+	background: #676767;
 	-webkit-transition: all 0.5s;
 	transition: all 0.5s ease;
 	color: #FFF;
 	-webkit-transform: translate3d(-100%, 0, 0);
 	transform: translate3d(-100%, 0, 0);
-	-webkit-box-shadow: -19px 0px 11px 20px rgba(0,0,0,1);
-	-moz-box-shadow: -19px 0px 11px 20px rgba(0,0,0,1);
-	box-shadow: -19px 0px 11px 20px rgba(0,0,0,1);
+	-webkit-box-shadow: 4px 0px 10px -5px #000000;
+	-moz-box-shadow: 4px 0px 10px -5px rgba(0,0,0,1);
+	box-shadow: 4px 0px 10px -5px rgba(0,0,0,1);
+	z-index: 4;
 	@media @mobile {
-		top: 60px;
-		width: 100%;
+		width: 66%;
 	}
 	&.open {
 		visibility: visible;
@@ -28,7 +27,7 @@ nav {
 		text-decoration: none;
 		transition: all .25s ease;
 		&:hover {
-			color: darken(#FFF, 30%);
+			color: lighten(@link-color, 8%);
 			text-decoration: underline;
 		}
 	}
@@ -37,8 +36,7 @@ nav {
 		text-transform: uppercase;
 	}
 	.padding {
-		padding: 72px;
-		.header-side-padding();
+		padding: @vertical-common;
 		@media @mobile {
 			padding: 0;
 		}
@@ -47,17 +45,25 @@ nav {
 		padding-top: 40px;
 	}
 	.nav-item {
-		padding: 15px 0;
+		padding: (@vertical-common / 2) 0;
 		display: block;
 		cursor: pointer;
 		.arrow {
 			transition: all .2s ease;
 		}
+		@media @desktop {
+			&.first-desktop {
+				padding-top: 0px;
+			}
+		}		
 		@media @mobile {
 			border-top: 1px solid #555;
 			padding: 15px;
 			&:last-child {
 				border-bottom: 1px solid #555;
+			}
+			a {
+				display: block;
 			}
 		}
 	}
@@ -69,7 +75,7 @@ nav {
 			max-height: 400px;
 		}
 		a {
-			color: @teal;
+			color: @link-color;
 			font-size: .9em;
 			display: block;
 			padding: 5px 0;
